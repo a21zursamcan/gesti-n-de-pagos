@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="dark_blue">#101132</color>
+    <color name="purple">#6648C3</color>
+
+    <!--    Colores personalizados-->
+    <color name="colorFondo">#000000</color>
+    <color name="amarillo">#e1ff00</color>
+    <color name="naranja">#E8A913</color>
+    <color name="red">#ff0019</color>
+
 </resources>
