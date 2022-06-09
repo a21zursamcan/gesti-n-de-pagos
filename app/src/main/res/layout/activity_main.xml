@@ -7,4 +7,46 @@
     tools:context=".MainActivity"
     android:background="@drawable/background">
 
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Saldo Total"
+        android:textColor="@color/white"
+        android:textSize="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/saldoTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0€"
+        android:textColor="@color/white"
+        android:textSize="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="335dp"
+        android:layout_height="427dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saldoTotal" />
+
+    <Button
+        android:id="@+id/añadirPago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_back_red_100"
+        android:text="Añadir Gasto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
