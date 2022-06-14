@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.gestindegastos.Contacto;
 import com.example.gestindegastos.MainActivity;
 import com.example.gestindegastos.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,13 +24,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOError;
+import java.io.IOException;
+import java.util.ArrayList;
+
 
 public class login extends AppCompatActivity {
     public static String nombreUsuario="demo";
     public static String tipoDeUsuario;
+    public static ArrayList<Contacto> listaContactosExistentes;
+    public static String rUsuarioID="";
 
-    //Contador para entrar en modo admin
-    int contadorAdmin=0;
+    //conseguimos la referencia a la firebase database desde la URL
+    public static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://gestiongastos-63399-default-rtdb.firebaseio.com/");
 
     public static FirebaseAuth mAuth;
 
@@ -37,9 +44,6 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        //conseguimos la referencia a la firebase database desde la URL
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://gestiongastos-63399-default-rtdb.firebaseio.com/");
 
 
         // Initialize Firebase Auth
@@ -68,6 +72,7 @@ public class login extends AppCompatActivity {
             });
 
             //destruye esta actividad(login)
+            revisionUsuariosExistentes();
             finish();
             return;
         }
@@ -94,6 +99,44 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 authenticateUser();
+            }
+        });
+
+
+    }
+
+    public static void agregarUsuarioListaContactos(String nombre,String ID){
+        databaseReference.child("usuarios").child(mAuth.getUid()).child("listaContactos").child(ID).child("usuario").setValue(nombre);
+        databaseReference.child("usuarios").child(mAuth.getUid()).child("listaContactos").child(ID).child("tedebe").setValue(0);
+        databaseReference.child("usuarios").child(mAuth.getUid()).child("listaContactos").child(ID).child("debes").setValue(0);
+        databaseReference.child("usuarios").child(ID).child("listaContactos").child(mAuth.getUid()).child("usuario").setValue(nombreUsuario);
+        databaseReference.child("usuarios").child(ID).child("listaContactos").child(mAuth.getUid()).child("tedebe").setValue(0);
+        databaseReference.child("usuarios").child(ID).child("listaContactos").child(mAuth.getUid()).child("debes").setValue(0);
+    }
+
+    public void revisionUsuariosExistentes(){
+        databaseReference.child("usuarios").child(mAuth.getUid()).child("listaContactos").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listaContactosExistentes=new ArrayList<>();
+
+                //Obtenemos lista de contactos existentes
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    try{
+                        String nombreUsuario=dataSnapshot.child("usuario").getValue().toString();
+                        String idUsuario=dataSnapshot.getKey();
+                        if(nombreUsuario!=null||idUsuario!=null){
+                            listaContactosExistentes.add(new Contacto(nombreUsuario,idUsuario));
+                        }
+                    }catch (java.lang.NullPointerException e){
+                        System.out.println(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
@@ -139,6 +182,20 @@ public class login extends AppCompatActivity {
         tipoDeUsuario="";
         nombreUsuario="";
         mAuth.signOut();
+    }
+
+    public static void obtenerUsuarioDeID(String ID) {
+        databaseReference.child("usuarios").child(ID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                rUsuarioID = snapshot.child("usuario").getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }

@@ -76,6 +76,9 @@ public class Register extends AppCompatActivity {
                                             //creando intent para abrir MenuPrincipal
                                             Intent intent = new Intent(Register.this, MainActivity.class);
 
+                                            login.tipoDeUsuario="registrado";
+                                            login.nombreUsuario=userString;
+
                                             //abriendo MenuPrincipal
                                             startActivity(intent);
 

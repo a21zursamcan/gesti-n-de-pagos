@@ -14,18 +14,26 @@
         android:theme="@style/Theme.GestiónDeGastos"
         tools:targetApi="31">
         <activity
+            android:name=".AnadirContactos"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
             android:name=".anadirGastos"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="behind" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="behind" />
         <activity
             android:name=".login.Register"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="behind" />
         <activity
             android:name=".login.login"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="behind"
             android:theme="@style/Theme.GestiónDeGastos.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/activity_anadir_contactos.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/activity_anadir_gastos.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/activity_gestion_de_gastos.xml" value="0.3958333333333333" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/activity_registro.xml" value="0.1" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/anadir_gastos.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/anadir_gastos_element.xml" value="0.37135416666666665" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/buscador_usuario_element.xml" value="0.3859375" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/main_activity_element.xml" value="0.37135416666666665" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/usuarioDeudas_element.xml" value="0.24114583333333334" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/usuario_deudas_element.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/gesti-n-de-pagos/app/src/main/res/layout/wordlist_item.xml" value="0.33" />
       </map>
     </option>
